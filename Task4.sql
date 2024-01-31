@@ -15,4 +15,5 @@ JOIN artists ON tracks.artist_id = artists.id WHERE duration = ( SELECT MIN(dura
 SELECT name 
 FROM albums 
 WHERE release_year 
-BETWEEN 2018 AND 2020 GROUP BY name HAVING COUNT(DISTINCT tracks.name) = ( SELECT MIN(COUNT(DISTINCT tracks.name)) FROM tracks JOIN albums ON tracks.album_id = albums.id WHERE release_year BETWEEN 2018 AND 2020 GROUP BY albums.name );
+BETWEEN 2018 AND 2020 
+GROUP BY name HAVING COUNT(DISTINCT tracks.name) = ( SELECT MIN(COUNT(DISTINCT tracks.name)) FROM tracks JOIN albums ON tracks.album_id = albums.id WHERE release_year BETWEEN 2018 AND 2020 GROUP BY albums.name );
